@@ -1,0 +1,26 @@
+package com.project.rr;
+
+public class RoundRobin {
+    public Process[] processes;
+    private int capacity;
+    public RoundRobin(int capacity) {
+        this.capacity = capacity;
+        processes = new Process[capacity];
+    }
+
+    public Process[] getProcesses() {
+        return processes;
+    }
+
+    public void setProcesses(Process[] processes) {
+        this.processes = processes;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+}
