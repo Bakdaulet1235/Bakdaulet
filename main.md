@@ -1,0 +1,92 @@
+ # Bakdaulet Күмісбек Бақдәулет АиУ 18-9
+ 
+ # roundrobin
+ 
+ #include <iostream.h>
+#include <stdlib.h>
+#include <conio.h>
+ 
+void main ()
+{
+    int n,y,i,g=0,k=0,j,u;
+    int bur[100],wait[100], turnar[100];
+    int sum=0;
+    double avewait=0.0,aveturn=0.0;
+ 
+ 
+    cout<<"Number of processes= "<<endl;
+    cin>>y;
+    n=y*2;
+ 
+    for (i=0;i<n/2;i++)
+    {   
+        cout<<"Enter Burst time= "<<endl;
+        cin>>bur[i];
+        g++;
+ 
+    }
+    for (i=n/2;i<n;i++)
+    {   
+        cout<<"Enter Second Burst time= "<<endl;
+        cin>>bur[i];
+        k++;
+    }
+    system("CLS");
+ 
+    for (i=0;i<n;i++)
+    {
+        sum=0;
+        for (j=0;j<i;j++)
+            sum=sum+bur[j];
+        wait[i]=sum;
+    }
+ 
+    for (i=0;i<n;i++)
+    {
+        turnar[i]=wait[i]+bur[i];
+    }
+    for (i=0;i<n;i++)
+    {
+        avewait+=wait[i];
+        aveturn+=turnar[i];
+    }
+    
+    avewait/=n;
+    aveturn/=n;
+ 
+    cout<<endl;
+ 
+    cout<<"PROCESS ID     BURST TIME      WAIT TIME       TURNAROUND TIME ";
+    
+    
+    cout<<endl;
+    cout<<endl;
+    for (i=0;i<n/2;i++)
+    {
+        cout<<i+1<<"\t\t"<<bur[i]<<"\t\t"<<wait[i]<<"\t\t"<<turnar[i];
+        cout<<endl;
+    }
+    cout<<endl;
+        
+    for (i=n/2;i<n;i++)
+    {
+            
+        cout<<i+1<<"\t\t"<<bur[i]<<"\t\t"<<wait[i]<<"\t\t"<<turnar[i];
+        cout<<endl;
+    }
+    cout<<"***************************************************************";
+    cout<<endl;
+    cout<<endl;
+    cout<<"Average Wait Time="<<avewait<<endl;
+    cout<<"Average Turnaround Time="<<aveturn<<endl;
+    getch();
+ 
+}
+
+## result 
+
+sh: 1: pause: not found                                                                                                       
+AABABCBDCBEDCBEDCBDD                                                                                                          
+                                                                                                                              
+...Program finished with exit code 0                                                                                          
+Press ENTER to exit console
